@@ -1,4 +1,4 @@
-import { Flex, Heading, HStack, Stack, Text } from '@chakra-ui/react'
+import { Flex, HStack, Stack, Text } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
 
 export interface PengaturanGajiProps {
@@ -13,12 +13,11 @@ function totalKehadiran(nominal: number, kehadiran: number) {
   return formatNumber(nominal * kehadiran)
 }
 
-function formatNumber(num: number) {
+export function formatNumber(num: number) {
   return Intl.NumberFormat('id-Id').format(num)
 }
 
 function PengaturanGaji({
-  id,
   jenis,
   nama,
   nominal,

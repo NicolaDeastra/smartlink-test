@@ -10,7 +10,7 @@ const queryClient = new QueryClient()
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider resetCSS theme={theme}>
+      <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
       <ReactQueryDevtools />
