@@ -1,7 +1,7 @@
 import { Flex, HStack, Stack, Text } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
 
-import { formatNumber } from '@components/PengaturanGaji'
+import { formatNumber } from '@src/utils'
 
 export interface UpahProps {
   id?: number
@@ -11,7 +11,7 @@ export interface UpahProps {
   jumlah: number
 }
 
-function Upah({ id, nama, nominal, satuan, jumlah }: UpahProps) {
+function Upah({ nama, nominal, satuan, jumlah }: UpahProps) {
   return (
     <Flex justifyContent='space-between'>
       <Stack spacing='0'>

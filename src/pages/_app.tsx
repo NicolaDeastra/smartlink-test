@@ -1,20 +1,17 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import { QueryClientProvider, QueryClient } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
-
-import theme from '@src/theme'
 import { AppProps } from 'next/app'
+import { Provider } from 'react-redux'
 
-const queryClient = new QueryClient()
+import store from '@src/store/store'
+import theme from '@src/theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    </Provider>
   )
 }
 

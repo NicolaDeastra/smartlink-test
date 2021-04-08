@@ -1,6 +1,6 @@
-import { Flex, HStack, Stack, Text } from '@chakra-ui/react'
+import { Flex, HStack, Text } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
-import { formatNumber } from './PengaturanGaji'
+import { formatNumber } from '@src/utils'
 
 export interface KomisiProps {
   nama: string
