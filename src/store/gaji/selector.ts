@@ -1,5 +1,11 @@
 import { RootState } from '../store'
-import { GajiType, PengaturanGajiType, PengaturanUpah, Komisi } from './types'
+import {
+  GajiType,
+  PengaturanGajiType,
+  PengaturanUpah,
+  Komisi,
+  Tanggungan,
+} from './types'
 
 export const SelectSalary = (state: RootState): GajiType => state.gaji
 
@@ -20,3 +26,15 @@ export const totalKomisi = (state: RootState): number => state.gaji.total_komisi
 
 export const gajiKotor = (state: RootState): number =>
   state.gaji.total_gaji_kotor
+
+export const gajiBersih = (state: RootState): number =>
+  state.gaji.total_gaji_bersih
+
+export const tanggungan = (state: RootState): Tanggungan[] =>
+  state.gaji.tanggungan
+
+export const totalTanggungan = (state: RootState): number =>
+  state.gaji.total_tanggungan
+
+export const tanggunganDibayar = (state: RootState): number =>
+  state.gaji.tanggungan_dibayar

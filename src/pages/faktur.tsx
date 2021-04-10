@@ -1,36 +1,36 @@
-import { Center, Heading, Stack, Divider } from '@chakra-ui/react'
+import { Center, Divider, Heading, Stack } from '@chakra-ui/react'
 
-import Layout from '@components/Layout'
-import HeadingBox from '@src/components/HeadingBox'
-import GajiBox from '@components/GajiBox'
+import GajiBox from '@src/components/GajiBox'
+import Layout from '@src/components/Layout'
 import UpahBox from '@components/UpahBox'
 import KomisiBox from '@src/components/KomisiBox'
 import GajiKotorBox from '@src/components/GajiKotorBox'
 import TanggunganBox from '@src/components/TanggunganBox'
 import GajiBersihBox from '@src/components/GajiBersihBox'
+import HeadingBox from '@src/components/HeadingBox'
 import HeadComponents from '@src/components/Head'
 
-const Index = () => {
+function Faktur() {
   return (
     <Layout>
-      <HeadComponents title='Faktur Gaji' />
+      <HeadComponents title='Cetak Gaji' />
       <Stack>
         <Center p='4'>
-          <Heading size='md'>Faktur Gaji</Heading>
+          <Heading size='md'>Detail Faktur</Heading>
         </Center>
         <Divider />
         <Stack bg='#f2f5f7' spacing='4'>
-          <HeadingBox />
-          <GajiBox />
-          <UpahBox />
-          <KomisiBox />
+          <HeadingBox cetak />
+          <GajiBox cetak />
+          <UpahBox cetak />
+          <KomisiBox cetak />
           <GajiKotorBox />
-          <TanggunganBox />
-          <GajiBersihBox />
+          <TanggunganBox cetak />
+          <GajiBersihBox cetak />
         </Stack>
       </Stack>
     </Layout>
   )
 }
 
-export default Index
+export default Faktur

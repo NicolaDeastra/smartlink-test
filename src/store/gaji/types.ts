@@ -12,6 +12,7 @@ export interface GajiType {
   rekening: Rekening
   total_gaji: number
   total_gaji_kotor: number
+  total_gaji_bersih: number
   total_upah: number
   total_komisi: number
   total_tanggungan: number

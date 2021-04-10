@@ -6,7 +6,7 @@ import { SelectSalary, PengaturanGajiType } from '@src/store/gaji'
 
 import { formatNumber } from '@src/utils'
 
-function GajiBox() {
+function GajiBox({ cetak }: { cetak?: boolean }) {
   const gaji = useSelector(SelectSalary)
 
   return (
@@ -21,6 +21,7 @@ function GajiBox() {
           nominal={data.nominal}
           kehadiran={gaji.total_kehadiran}
           periode={gaji.total_periode}
+          cetak={cetak}
         />
       ))}
       <Divider />

@@ -71,6 +71,7 @@ const initialState: GajiType = {
   },
   total_gaji: 2524000,
   total_gaji_kotor: 2824000,
+  total_gaji_bersih: 2124000,
   total_upah: 100000,
   total_komisi: 200000,
   total_tanggungan: 570000,

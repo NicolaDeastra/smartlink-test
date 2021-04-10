@@ -5,10 +5,11 @@ export interface TanggunganProps {
   id?: number
   nama: string
   ket: string
-  denda: number
+  nominal: number
+  cetak?: boolean
 }
 
-function Tanggungan({ nama, ket, denda }: TanggunganProps) {
+function Tanggungan({ nama, ket, nominal, cetak }: TanggunganProps) {
   return (
     <Flex justifyContent='space-between'>
       <Stack spacing='0'>
@@ -19,9 +20,9 @@ function Tanggungan({ nama, ket, denda }: TanggunganProps) {
       </Stack>
       <HStack>
         <Text size='md' color='red.500'>
-          {denda}
+          {nominal}
         </Text>
-        <EditIcon color='red.500' />
+        {cetak ? null : <EditIcon color='red.500' />}
       </HStack>
     </Flex>
   )

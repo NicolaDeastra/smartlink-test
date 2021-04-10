@@ -10,6 +10,7 @@ export interface PengaturanGajiProps {
   nominal: number
   kehadiran: number
   periode: number
+  cetak?: boolean
 }
 
 function PengaturanGaji({
@@ -18,6 +19,7 @@ function PengaturanGaji({
   nominal,
   kehadiran,
   periode,
+  cetak,
 }: PengaturanGajiProps) {
   return (
     <Flex justifyContent='space-between'>
@@ -35,7 +37,7 @@ function PengaturanGaji({
             ? totalKehadiran(nominal, periode)
             : totalKehadiran(nominal, kehadiran)}
         </Text>
-        <EditIcon color='blue.500' />
+        {cetak ? null : <EditIcon color='blue.500' />}
       </HStack>
     </Flex>
   )

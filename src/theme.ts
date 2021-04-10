@@ -13,10 +13,10 @@ const breakpoints = createBreakpoints({
 const overrides = {
   initialColorMode: 'light',
   useSystemColorMode: false,
-
   colors: {
     black: '#16161D',
   },
+
   fonts,
   breakpoints,
 }

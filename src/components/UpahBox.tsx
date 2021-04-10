@@ -5,7 +5,7 @@ import { pengaturanUpah, totalUpah } from '@src/store/gaji'
 import Upah, { UpahProps } from '@components/Upah'
 import { formatNumber } from '@src/utils'
 
-function UpahBox() {
+function UpahBox({ cetak }: { cetak?: boolean }) {
   const upah = useSelector(pengaturanUpah)
   const total = useSelector(totalUpah)
 
@@ -19,6 +19,7 @@ function UpahBox() {
           nominal={data.nominal}
           satuan={data.satuan}
           jumlah={data.jumlah}
+          cetak={cetak}
         />
       ))}
       <Divider />

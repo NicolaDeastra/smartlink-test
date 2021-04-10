@@ -9,9 +9,10 @@ export interface UpahProps {
   nominal: number
   satuan: string
   jumlah: number
+  cetak?: boolean
 }
 
-function Upah({ nama, nominal, satuan, jumlah }: UpahProps) {
+function Upah({ nama, nominal, satuan, jumlah, cetak }: UpahProps) {
   return (
     <Flex justifyContent='space-between'>
       <Stack spacing='0'>
@@ -22,7 +23,8 @@ function Upah({ nama, nominal, satuan, jumlah }: UpahProps) {
       </Stack>
       <HStack>
         <Text size='md'>{formatNumber(nominal * jumlah)}</Text>
-        <CloseIcon color='gray.400' />
+
+        {cetak ? null : <CloseIcon color='gray.400' />}
       </HStack>
     </Flex>
   )
