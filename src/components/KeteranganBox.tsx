@@ -2,7 +2,7 @@ import { Button, Stack, Text } from '@chakra-ui/react'
 
 function KeteranganBox() {
   return (
-    <Stack spacing='6' p='6' bg='white'>
+    <Stack spacing='6' p={['2', '6']} bg='white'>
       <Stack spacing='2'>
         <Text fontSize='sm' color='gray.600'>
           Keterangan

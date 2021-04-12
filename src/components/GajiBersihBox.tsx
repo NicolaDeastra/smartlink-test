@@ -10,7 +10,7 @@ function GajiBersihBox({ cetak }: { cetak?: boolean }) {
   const totalGajiKotor = useSelector(gajiBersih)
 
   return (
-    <Stack spacing='6' p='6' bg='white'>
+    <Stack spacing='6' p={['2', '6']} bg='white'>
       <Flex justifyContent='space-between'>
         <Heading size='md' color='blue.600'>
           Total Gaji Kotor <CheckCircleIcon color='green.600' />

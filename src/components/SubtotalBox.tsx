@@ -8,7 +8,7 @@ function SubtotalBox() {
   const data = useSelector(SelectSalary)
 
   return (
-    <Stack bg='white' p='6'>
+    <Stack bg='white' p={['2', '6']}>
       <Flex justifyContent='space-between'>
         <Text size='md'>Subtotal Gaji</Text>
         <Heading size='md'>Rp {formatNumber(data.total_gaji)}</Heading>

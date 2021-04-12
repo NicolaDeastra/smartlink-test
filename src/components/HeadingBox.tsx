@@ -20,7 +20,7 @@ function HeadingBox({ cetak }: { cetak?: boolean }) {
 
   return (
     <>
-      <Stack spacing='6' p='6' bg='white'>
+      <Stack spacing='6' p={['2', '6']} bg='white'>
         {cetak && (
           <Stack spacing='2'>
             <Heading size='md'>{data.id_karyawan}</Heading>
