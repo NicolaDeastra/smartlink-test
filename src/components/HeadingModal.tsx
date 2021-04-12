@@ -68,7 +68,7 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
               <Input
                 borderRadius='0'
                 w='20rem'
-                px='7rem'
+                px={['5rem', '7rem']}
                 value={`${totalHadir} Hari`}
               />
 
@@ -92,13 +92,13 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
             borderRadius='2'
             colorScheme='red'
             mr={3}
-            w='12rem'
+            w={['11rem', '12rem']}
             variant='outline'
             onClick={handleClose}
           >
             Close
           </Button>
-          <Button borderRadius='2' w='12rem' colorScheme='blue'>
+          <Button borderRadius='2' w={['11rem', '12rem']} colorScheme='blue'>
             Simpan
           </Button>
         </ModalFooter>

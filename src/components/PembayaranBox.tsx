@@ -23,7 +23,7 @@ interface PembayaranBoxProps {
 
 function PembayaranBox({ bank }: PembayaranBoxProps) {
   return (
-    <Stack bg='white' spacing='6' p={['2', '6']}>
+    <Stack bg='white' spacing='6' p={['4', '6']}>
       <Stack>
         <Text>
           Bayar dari rekening <chakra.span color='blue.600'>*</chakra.span>

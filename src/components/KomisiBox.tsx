@@ -22,7 +22,7 @@ function KomisiBox({ cetak }: { cetak?: boolean }) {
 
   return (
     <>
-      <Stack spacing='6' p={['2', '6']} bg='white'>
+      <Stack spacing='6' p={['4', '6']} bg='white'>
         <Heading size='sm'>Komisi</Heading>
         {cetak ? null : (
           <HStack>

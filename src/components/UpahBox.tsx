@@ -10,7 +10,7 @@ function UpahBox({ cetak }: { cetak?: boolean }) {
   const total = useSelector(totalUpah)
 
   return (
-    <Stack spacing='6' p={['2', '6']} bg='white'>
+    <Stack spacing='6' p={['4', '6']} bg='white'>
       <Heading size='sm'>Upah borongan</Heading>
       {upah?.map((data: UpahProps) => (
         <Upah

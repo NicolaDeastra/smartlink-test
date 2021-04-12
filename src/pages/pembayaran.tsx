@@ -28,7 +28,7 @@ function Pembayaran({ data }: PembayaranProps) {
     <Layout>
       <HeadComponents title='Pembayaran' />
       <Stack>
-        <HStack spacing={['4rem ', '12rem']} p={['2', '6']}>
+        <HStack spacing={['4rem ', '12rem']} p={['4', '6']}>
           <Link href='/'>
             <ArrowBackIcon color='blue.600' cursor='pointer' boxSize={6} />
           </Link>

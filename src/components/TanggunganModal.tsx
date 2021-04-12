@@ -75,12 +75,12 @@ function TanggunganModal({ isOpen, onClose, id }: TanggunganModalProps) {
             borderRadius='2'
             colorScheme='red'
             mr={3}
-            w='11.5rem'
+            w={['9rem', '11.5rem']}
             variant='outline'
           >
             Close
           </Button>
-          <Button borderRadius='2' w='11.5rem' colorScheme='blue'>
+          <Button borderRadius='2' w={['9rem', '11.5rem']} colorScheme='blue'>
             Simpan
           </Button>
         </ModalFooter>

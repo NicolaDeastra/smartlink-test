@@ -40,7 +40,7 @@ function TanggunganBox({ cetak }: { cetak?: boolean }) {
 
   return (
     <>
-      <Stack spacing='6' p={['2', '6']} bg='white'>
+      <Stack spacing='6' p={['4', '6']} bg='white'>
         <Stack spacing='2'>
           <Heading size='sm'>Tanggungan</Heading>
           <Text color='gray.600'>

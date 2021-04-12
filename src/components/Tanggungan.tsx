@@ -17,8 +17,8 @@ function Tanggungan({ nama, ket, nominal, cetak, id }: TanggunganProps) {
     <>
       <Flex justifyContent='space-between'>
         <Stack spacing='0'>
-          <Text fontSize='lg'>{nama}</Text>
-          <Text size='md' color='gray.600'>
+          <Text fontSize={['md', 'lg']}>{nama}</Text>
+          <Text fontSize={['sm', 'md']} color='gray.600'>
             {ket}
           </Text>
         </Stack>

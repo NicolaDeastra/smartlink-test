@@ -10,7 +10,7 @@ function GajiBox({ cetak }: { cetak?: boolean }) {
   const gaji = useSelector(SelectSalary)
 
   return (
-    <Stack spacing='6' p={['2', '6']} bg='white'>
+    <Stack spacing='6' p={['4', '6']} bg='white'>
       <Heading size='sm'>Gaji</Heading>
       {gaji.pengaturan_gaji?.map((data: PengaturanGajiType) => (
         <PengaturanGaji

@@ -91,7 +91,7 @@ function GajiModal({ isOpen, onClose, pokok, id }: GajiModalProps) {
           </Stack>
         </ModalBody>
         <ModalFooter mx='auto'>
-          <Button borderRadius='2' w='24rem' colorScheme='blue'>
+          <Button borderRadius='2' w={['19rem', '24rem']} colorScheme='blue'>
             Simpan
           </Button>
         </ModalFooter>

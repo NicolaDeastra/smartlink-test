@@ -8,12 +8,12 @@ function GajiKotorBox() {
   const totalGajiKotor = useSelector(gajiKotor)
 
   return (
-    <Stack spacing='6' p={['2', '6']} bg='white'>
+    <Stack spacing='6' p={['4', '6']} bg='white'>
       <Flex justifyContent='space-between'>
-        <Heading size='md' color='green.400'>
+        <Heading size={['sm', 'md']} color='green.400'>
           Total Gaji Kotor
         </Heading>
-        <Heading size='md' color='green.400'>
+        <Heading size={['sm', 'md']} color='green.400'>
           Rp {formatNumber(totalGajiKotor)}
         </Heading>
       </Flex>
