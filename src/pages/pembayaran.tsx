@@ -1,17 +1,34 @@
 import Link from 'next/link'
-import { HStack, Heading, Stack, Divider, Button } from '@chakra-ui/react'
+import { HStack, Heading, Stack, Divider } from '@chakra-ui/react'
 import { ArrowBackIcon } from '@chakra-ui/icons'
+
+import Services from '@src/services'
 
 import Layout from '@components/Layout'
 import SubtotalBox from '@src/components/SubtotalBox'
 import HeadComponents from '@src/components/Head'
+import PembayaranBox, { BanksType } from '@src/components/PembayaranBox'
 
-function Pembayaran() {
+interface PembayaranProps {
+  data: BanksType[]
+}
+
+export async function getServerSideProps() {
+  const bank = await Services.getBanks()
+  const data = bank.data
+  return {
+    props: {
+      data,
+    },
+  }
+}
+
+function Pembayaran({ data }: PembayaranProps) {
   return (
     <Layout>
       <HeadComponents title='Pembayaran' />
       <Stack>
-        <HStack spacing='12rem' py='4'>
+        <HStack spacing='12rem' p='6'>
           <Link href='/'>
             <ArrowBackIcon color='blue.600' cursor='pointer' boxSize={6} />
           </Link>
@@ -20,9 +37,7 @@ function Pembayaran() {
         <Divider />
         <Stack bg='#f2f5f7' spacing='4'>
           <SubtotalBox />
-          <Link href='/faktur'>
-            <Button>Cetak</Button>
-          </Link>
+          <PembayaranBox bank={data} />
         </Stack>
       </Stack>
     </Layout>

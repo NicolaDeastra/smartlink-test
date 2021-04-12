@@ -37,11 +37,13 @@ export interface PengaturanUpah {
 }
 
 export interface Komisi {
+  id: string
   nama: string
   nominal: number
 }
 
 export interface Tanggungan {
+  id: string
   nama: string
   ket: string
   nominal: number

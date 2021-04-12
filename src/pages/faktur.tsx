@@ -9,6 +9,7 @@ import TanggunganBox from '@src/components/TanggunganBox'
 import GajiBersihBox from '@src/components/GajiBersihBox'
 import HeadingBox from '@src/components/HeadingBox'
 import HeadComponents from '@src/components/Head'
+import KeteranganBox from '@src/components/KeteranganBox'
 
 function Faktur() {
   return (
@@ -27,6 +28,7 @@ function Faktur() {
           <GajiKotorBox />
           <TanggunganBox cetak />
           <GajiBersihBox cetak />
+          <KeteranganBox />
         </Stack>
       </Stack>
     </Layout>

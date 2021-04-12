@@ -18,27 +18,32 @@ import {
 } from '@chakra-ui/react'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 
-import { SelectSalary } from '@src/store/gaji'
+import { kehadiran } from '@src/store/gaji'
 
 interface HeadingModelProps {
   isOpen: boolean
-  onClose: any
+  onClose: () => void
 }
 
 function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
-  const data = useSelector(SelectSalary)
-  const [kehadiran, setKehadiran] = React.useState(data.total_kehadiran)
+  const hadir = useSelector(kehadiran)
+  const [totalHadir, setTotalHadir] = React.useState(hadir)
 
   const tambahKehadiran = () => {
-    setKehadiran(() => kehadiran + 1)
+    setTotalHadir(() => totalHadir + 1)
   }
 
   const kurangKehadiran = () => {
-    setKehadiran(() => kehadiran - 1)
+    setTotalHadir(() => totalHadir - 1)
+  }
+
+  const handleClose = () => {
+    setTotalHadir(() => hadir)
+    onClose()
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size='sm'>
+    <Modal isOpen={isOpen} onClose={handleClose} size='md'>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader mx='auto'>Ubah Kehadiran</ModalHeader>
@@ -48,25 +53,7 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
         <ModalBody>
           <Stack>
             <Text color='gray.600'>Durasi keterlambanan</Text>
-            <HStack spacing='0.3'>
-              <IconButton
-                aria-label='Plus'
-                bg='white'
-                color='black'
-                borderRadius='0'
-                border='1px'
-                borderColor='gray.200'
-                borderLeftRadius='2'
-                onClick={tambahKehadiran}
-                icon={<AddIcon />}
-              />
-              <Input
-                borderRadius='0'
-                w='16rem'
-                px='6rem'
-                value={`${kehadiran} Hari`}
-              />
-
+            <HStack spacing='0.2'>
               <IconButton
                 aria-label='Minus'
                 bg='white'
@@ -74,9 +61,27 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
                 borderRadius='0'
                 border='1px'
                 borderColor='gray.200'
-                borderRightRadius='2'
+                borderLeftRadius='2'
                 onClick={kurangKehadiran}
                 icon={<MinusIcon />}
+              />
+              <Input
+                borderRadius='0'
+                w='20rem'
+                px='7rem'
+                value={`${totalHadir} Hari`}
+              />
+
+              <IconButton
+                aria-label='Add'
+                bg='white'
+                color='black'
+                borderRadius='0'
+                border='1px'
+                borderColor='gray.200'
+                borderRightRadius='2'
+                onClick={tambahKehadiran}
+                icon={<AddIcon />}
               />
             </HStack>
           </Stack>
@@ -87,13 +92,13 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
             borderRadius='2'
             colorScheme='red'
             mr={3}
-            w='10rem'
+            w='12rem'
             variant='outline'
-            onClick={onClose}
+            onClick={handleClose}
           >
             Close
           </Button>
-          <Button borderRadius='2' w='10rem' colorScheme='blue'>
+          <Button borderRadius='2' w='12rem' colorScheme='blue'>
             Simpan
           </Button>
         </ModalFooter>

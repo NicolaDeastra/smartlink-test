@@ -10,6 +10,15 @@ class Services {
 
     return await response.json()
   }
+  static getBanks = async () => {
+    const response = await fetch(`${baseUrl}/salary/bank`)
+
+    if (!response.ok) {
+      throw new Error('Error fetch data')
+    }
+
+    return await response.json()
+  }
 }
 
 export default Services

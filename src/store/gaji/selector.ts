@@ -15,6 +15,8 @@ export const pengaturanGaji = (state: RootState): PengaturanGajiType[] =>
 export const kehadiran = (state: RootState): number =>
   state.gaji.total_kehadiran
 
+export const periode = (state: RootState): number => state.gaji.total_periode
+
 export const pengaturanUpah = (state: RootState): PengaturanUpah[] =>
   state.gaji.pengaturan_upah
 

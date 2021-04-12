@@ -48,17 +48,20 @@ const initialState: GajiType = {
   ],
   komisi: [
     {
+      id: '1b22',
       nama: 'Bonus Target 1',
       nominal: 200000,
     },
   ],
   tanggungan: [
     {
+      id: 'd22r',
       nama: 'Ganti Barang Hilang',
       ket: 'Baju yang hilang warna merah',
       nominal: 50000,
     },
     {
+      id: '22rt',
       nama: 'Denda Keterlambatan',
       ket: 'Karena terlambat 3 hari berturut-turut',
       nominal: 120000,
