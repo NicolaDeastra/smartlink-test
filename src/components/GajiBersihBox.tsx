@@ -12,10 +12,10 @@ function GajiBersihBox({ cetak }: { cetak?: boolean }) {
   return (
     <Stack spacing='6' p={['4', '6']} bg='white'>
       <Flex justifyContent='space-between'>
-        <Heading size='md' color='blue.600'>
+        <Heading fontSize={['md', 'xl']} color='blue.600'>
           Total Gaji Kotor <CheckCircleIcon color='green.600' />
         </Heading>
-        <Heading size='md' color='blue.600'>
+        <Heading fontSize={['md', 'xl']} color='blue.600'>
           Rp {formatNumber(totalGajiKotor)}
         </Heading>
       </Flex>

@@ -10,10 +10,10 @@ function GajiKotorBox() {
   return (
     <Stack spacing='6' p={['4', '6']} bg='white'>
       <Flex justifyContent='space-between'>
-        <Heading size={['sm', 'md']} color='green.400'>
+        <Heading fontSize={['md', 'xl']} color='green.400'>
           Total Gaji Kotor
         </Heading>
-        <Heading size={['sm', 'md']} color='green.400'>
+        <Heading fontSize={['md', 'xl']} color='green.400'>
           Rp {formatNumber(totalGajiKotor)}
         </Heading>
       </Flex>
