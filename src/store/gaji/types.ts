@@ -49,6 +49,21 @@ export interface Tanggungan {
   nominal: number
 }
 
+export interface SetKehadiranType {
+  newKehadiran: number
+}
+
+export interface SetGajiPokok {
+  id: number
+  nominal: number
+}
+
+export interface AddKomisi {
+  id: string
+  nama: string
+  nominal: number
+}
+
 export interface Rekening {
   nomor: string
   bank: string

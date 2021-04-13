@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {
   Button,
   Divider,
@@ -17,8 +18,13 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
-import { pengaturanGaji, kehadiran, periode } from '@src/store/gaji'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  pengaturanGaji,
+  kehadiran,
+  periode,
+  setGajiById,
+} from '@src/store/gaji'
 import { formatNumber } from '@src/utils'
 
 interface GajiModalProps {
@@ -33,13 +39,28 @@ function GajiModal({ isOpen, onClose, pokok, id }: GajiModalProps) {
   const hadir = useSelector(kehadiran)
   const totalPeriode = useSelector(periode)
   const totalById = total.find((item) => item.id === id)
+  const dispatch = useDispatch()
+
   let nominal = 0
   if (totalById) {
     nominal = totalById?.nominal
   }
 
+  const [gaji, setGaji] = React.useState(nominal)
+
+  const handleSaveGaji = () => {
+    dispatch(setGajiById({ nominal: gaji, id }))
+    onClose()
+  }
+
+  const handleClose = () => {
+    setGaji(() => nominal)
+
+    onClose()
+  }
+
   return (
-    <Modal onClose={onClose} size='md' isOpen={isOpen}>
+    <Modal onClose={handleClose} size='md' isOpen={isOpen}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader mx='auto' fontSize='md'>
@@ -57,7 +78,8 @@ function GajiModal({ isOpen, onClose, pokok, id }: GajiModalProps) {
                   borderRadius='sm'
                   type='number'
                   placeholder='Nominal'
-                  value={nominal}
+                  value={gaji}
+                  onChange={(e) => setGaji(Number(e.target.value))}
                 />
               </InputGroup>
               <Text color='gray.600' fontWeight='bold'>
@@ -91,7 +113,12 @@ function GajiModal({ isOpen, onClose, pokok, id }: GajiModalProps) {
           </Stack>
         </ModalBody>
         <ModalFooter mx='auto'>
-          <Button borderRadius='2' w={['19rem', '24rem']} colorScheme='blue'>
+          <Button
+            borderRadius='2'
+            w={['19rem', '24rem']}
+            onClick={() => handleSaveGaji()}
+            colorScheme='blue'
+          >
             Simpan
           </Button>
         </ModalFooter>

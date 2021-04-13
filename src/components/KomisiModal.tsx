@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {
   Button,
   Divider,
@@ -14,8 +15,8 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
-import { komisi } from '@src/store/gaji'
+import { useSelector, useDispatch } from 'react-redux'
+import { komisi, addKomisi, editKomisi } from '@src/store/gaji'
 
 interface KomisiModalProps {
   isOpen: boolean
@@ -26,9 +27,34 @@ interface KomisiModalProps {
 function KomisiModal({ isOpen, onClose, id }: KomisiModalProps) {
   const dataKomisi = useSelector(komisi)
   const komisiById = dataKomisi.find((item) => item.id === id)
+  const dispatch = useDispatch()
+  const [nama, setNama] = React.useState(komisiById ? komisiById.nama : '')
+  const [nominal, setNominal] = React.useState(
+    komisiById ? komisiById.nominal : 0
+  )
+
+  const saveNewKomisi = () => {
+    if (nama && nominal) {
+      dispatch(addKomisi(nama, nominal))
+      handleClose()
+    }
+  }
+
+  const handleEdit = () => {
+    if (nama && nominal && id) {
+      dispatch(editKomisi({ id, nama, nominal }))
+    }
+    onClose()
+  }
+
+  const handleClose = () => {
+    setNama(() => (komisiById ? komisiById.nama : ''))
+    setNominal(() => (komisiById ? komisiById.nominal : 0))
+    onClose()
+  }
 
   return (
-    <Modal onClose={onClose} size='md' isOpen={isOpen}>
+    <Modal onClose={handleClose} size='md' isOpen={isOpen}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader mx='auto' fontSize='md'>
@@ -43,7 +69,8 @@ function KomisiModal({ isOpen, onClose, id }: KomisiModalProps) {
               <Input
                 borderRadius='sm'
                 type='text'
-                value={id && komisiById?.nama}
+                value={nama}
+                onChange={(e) => setNama(e.target.value)}
                 placeholder='Nama Komisi'
               />
             </Stack>
@@ -52,7 +79,8 @@ function KomisiModal({ isOpen, onClose, id }: KomisiModalProps) {
               <Input
                 borderRadius='sm'
                 type='text'
-                value={id && komisiById?.nominal}
+                value={nominal}
+                onChange={(e) => setNominal(Number(e.target.value))}
                 placeholder='Nominal'
               />
             </InputGroup>
@@ -65,10 +93,16 @@ function KomisiModal({ isOpen, onClose, id }: KomisiModalProps) {
             mr={3}
             w={['9rem', '11.5rem']}
             variant='outline'
+            onClick={handleClose}
           >
             Close
           </Button>
-          <Button borderRadius='2' w={['9rem', '11.5rem']} colorScheme='blue'>
+          <Button
+            borderRadius='2'
+            w={['9rem', '11.5rem']}
+            onClick={id ? handleEdit : saveNewKomisi}
+            colorScheme='blue'
+          >
             Simpan
           </Button>
         </ModalFooter>

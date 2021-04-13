@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   Button,
   Divider,
@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 
-import { kehadiran } from '@src/store/gaji'
+import { kehadiran, setKehadiran } from '@src/store/gaji'
 
 interface HeadingModelProps {
   isOpen: boolean
@@ -28,6 +28,7 @@ interface HeadingModelProps {
 function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
   const hadir = useSelector(kehadiran)
   const [totalHadir, setTotalHadir] = React.useState(hadir)
+  const dispatch = useDispatch()
 
   const tambahKehadiran = () => {
     setTotalHadir(() => totalHadir + 1)
@@ -39,6 +40,11 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
 
   const handleClose = () => {
     setTotalHadir(() => hadir)
+    onClose()
+  }
+
+  const handleSave = () => {
+    dispatch(setKehadiran({ newKehadiran: totalHadir }))
     onClose()
   }
 
@@ -98,7 +104,12 @@ function HeadingModel({ isOpen, onClose }: HeadingModelProps) {
           >
             Close
           </Button>
-          <Button borderRadius='2' w={['11rem', '12rem']} colorScheme='blue'>
+          <Button
+            borderRadius='2'
+            w={['11rem', '12rem']}
+            colorScheme='blue'
+            onClick={() => handleSave()}
+          >
             Simpan
           </Button>
         </ModalFooter>
