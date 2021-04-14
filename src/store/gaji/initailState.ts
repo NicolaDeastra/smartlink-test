@@ -65,11 +65,7 @@ const initialState: GajiType = {
       nominal: 120000,
     },
   ],
-  rekening: {
-    nomor: '0371200780',
-    bank: 'BCA',
-    pemilik: 'Mega Marcela',
-  },
+
   total_gaji: 1724000,
   total_gaji_kotor: 2024000,
   total_gaji_bersih: 2124000,
@@ -77,8 +73,8 @@ const initialState: GajiType = {
   total_komisi: 200000,
   total_tanggungan: 570000,
   tanggungan_dibayar: -70000,
-  tanggal_catat: '2020-02-02',
-  keterangan: 'Lebih Semangat Lagi Ya!',
+  tanggal_catat: '',
+  keterangan: '',
 }
 
 export default initialState

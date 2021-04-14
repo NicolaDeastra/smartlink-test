@@ -6,6 +6,7 @@ import {
   SetGajiPokok,
   AddKomisi,
   Komisi,
+  Tanggungan,
 } from './types'
 
 const countTotalGaji = (
@@ -115,6 +116,33 @@ const gajiSlice = createSlice({
         state.total_upah
       )
     },
+    addTanggungan: {
+      reducer(state, action: PayloadAction<Tanggungan>) {
+        state.tanggungan.push(action.payload)
+      },
+      prepare(nama: string, ket: string, nominal: number) {
+        return {
+          payload: {
+            id: nanoid(),
+            nama,
+            ket,
+            nominal,
+          },
+        }
+      },
+    },
+
+    editTanggungan: (state, action: PayloadAction<Tanggungan>) => {
+      const { id, nominal, nama, ket } = action.payload
+
+      const tanggunganById = state.tanggungan.find((item) => item.id === id)
+
+      if (tanggunganById) {
+        tanggunganById.nama = nama
+        tanggunganById.nominal = nominal
+        tanggunganById.ket = ket
+      }
+    },
   },
 })
 
@@ -123,6 +151,8 @@ export const {
   setGajiById,
   addKomisi,
   editKomisi,
+  addTanggungan,
+  editTanggungan,
 } = gajiSlice.actions
 
 export default gajiSlice.reducer

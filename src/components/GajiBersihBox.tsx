@@ -20,7 +20,7 @@ function GajiBersihBox({ cetak }: { cetak?: boolean }) {
         </Heading>
       </Flex>
       <Text color='gray.600'>
-        Nominal akhir yang diterima karyawan setelah ditampah komisi dikurangi
+        Nominal akhir yang diterima karyawan setelah ditambah komisi dikurangi
         pembayaran tanggungan (jika ada).
       </Text>
       {cetak ? null : (

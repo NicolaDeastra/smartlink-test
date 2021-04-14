@@ -92,6 +92,7 @@ function GajiModal({ isOpen, onClose, pokok, id }: GajiModalProps) {
                     value={totalPeriode}
                     type='number'
                     placeholder='Periode'
+                    isDisabled
                   />
                   <InputRightAddon
                     borderRadius='sm'

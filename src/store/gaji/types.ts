@@ -9,7 +9,6 @@ export interface GajiType {
   pengaturan_upah: PengaturanUpah[]
   komisi: Komisi[]
   tanggungan: Tanggungan[]
-  rekening: Rekening
   total_gaji: number
   total_gaji_kotor: number
   total_gaji_bersih: number
@@ -62,10 +61,4 @@ export interface AddKomisi {
   id: string
   nama: string
   nominal: number
-}
-
-export interface Rekening {
-  nomor: string
-  bank: string
-  pemilik: string
 }

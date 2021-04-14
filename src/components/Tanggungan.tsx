@@ -1,6 +1,7 @@
 import { Flex, HStack, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
 import TanggunganModal from './TanggunganModal'
+import { formatNumber } from '@src/utils'
 
 export interface TanggunganProps {
   id?: string
@@ -24,7 +25,7 @@ function Tanggungan({ nama, ket, nominal, cetak, id }: TanggunganProps) {
         </Stack>
         <HStack>
           <Text size='md' color='red.500'>
-            {nominal}
+            {formatNumber(nominal)}
           </Text>
           {cetak ? null : (
             <EditIcon color='red.500' onClick={onOpen} cursor='pointer' />
